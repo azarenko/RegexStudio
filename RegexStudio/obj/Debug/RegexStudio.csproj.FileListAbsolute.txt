@@ -1,0 +1,9 @@
+D:\projects\RegexStudio\RegexStudio\bin\Debug\RegexStudio.exe
+D:\projects\RegexStudio\RegexStudio\bin\Debug\RegexStudio.pdb
+D:\projects\RegexStudio\RegexStudio\obj\Debug\RegexStudio.csprojAssemblyReference.cache
+D:\projects\RegexStudio\RegexStudio\obj\Debug\RegexStudio.MainForm.resources
+D:\projects\RegexStudio\RegexStudio\obj\Debug\RegexStudio.Properties.Resources.resources
+D:\projects\RegexStudio\RegexStudio\obj\Debug\RegexStudio.csproj.GenerateResource.cache
+D:\projects\RegexStudio\RegexStudio\obj\Debug\RegexStudio.csproj.CoreCompileInputs.cache
+D:\projects\RegexStudio\RegexStudio\obj\Debug\RegexStudio.exe
+D:\projects\RegexStudio\RegexStudio\obj\Debug\RegexStudio.pdb
