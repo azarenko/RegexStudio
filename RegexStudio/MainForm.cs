@@ -147,5 +147,42 @@ namespace RegexStudio
                 _output.Text = sb.ToString();
             }
         }
+
+        private void _replaceHighlight_Click(object sender, EventArgs e)
+        {
+            Regex re;
+            try
+            {
+                re = new Regex(_replacePattern.Text, GetReOptions());
+            }
+            catch (Exception exp)
+            {
+                MessageBox.Show(exp.Message);
+                return;
+            }
+
+            MatchCollection mc = re.Matches(_input.Text);
+
+            if (mc.Count > 0)
+            {
+                HighLightInput(_input, mc);
+            }
+        }
+
+        private void _replaceExecute_Click(object sender, EventArgs e)
+        {
+            Regex re;
+            try
+            {
+                re = new Regex(_replacePattern.Text, GetReOptions());
+            }
+            catch (Exception exp)
+            {
+                MessageBox.Show(exp.Message);
+                return;
+            }
+
+            _output.Text = re.Replace(_input.Text, _replaceFormatter.Text);
+        }
     }
 }

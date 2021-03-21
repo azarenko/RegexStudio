@@ -32,34 +32,42 @@ namespace RegexStudio
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this._filename = new System.Windows.Forms.ToolStripStatusLabel();
+            this._matchCount = new System.Windows.Forms.ToolStripStatusLabel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this._input = new System.Windows.Forms.RichTextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this._output = new System.Windows.Forms.RichTextBox();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this._filename = new System.Windows.Forms.ToolStripStatusLabel();
-            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this._regExGlobalOptions = new System.Windows.Forms.CheckedListBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.Extract = new System.Windows.Forms.TabPage();
-            this.Replace = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this._extractPattern = new System.Windows.Forms.TextBox();
-            this._extractFormatter = new System.Windows.Forms.TextBox();
-            this._extracktHighlight = new System.Windows.Forms.Button();
             this._extractExecute = new System.Windows.Forms.Button();
-            this._matchCount = new System.Windows.Forms.ToolStripStatusLabel();
+            this._extracktHighlight = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this._extractPattern = new System.Windows.Forms.TextBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this._extractFormatter = new System.Windows.Forms.TextBox();
+            this.Replace = new System.Windows.Forms.TabPage();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this._regExGlobalOptions = new System.Windows.Forms.CheckedListBox();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this._replaceExecute = new System.Windows.Forms.Button();
+            this._replaceHighlight = new System.Windows.Forms.Button();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this._replacePattern = new System.Windows.Forms.TextBox();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this._replaceFormatter = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -69,13 +77,18 @@ namespace RegexStudio
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.Extract.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            this.Replace.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            this.groupBox7.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -103,14 +116,27 @@ namespace RegexStudio
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(143, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -124,6 +150,16 @@ namespace RegexStudio
             this.statusStrip1.Size = new System.Drawing.Size(1000, 22);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
+            // 
+            // _filename
+            // 
+            this._filename.Name = "_filename";
+            this._filename.Size = new System.Drawing.Size(0, 17);
+            // 
+            // _matchCount
+            // 
+            this._matchCount.Name = "_matchCount";
+            this._matchCount.Size = new System.Drawing.Size(0, 17);
             // 
             // tableLayoutPanel1
             // 
@@ -155,7 +191,7 @@ namespace RegexStudio
             // 
             this.splitContainer1.Panel2.Controls.Add(this.groupBox2);
             this.splitContainer1.Size = new System.Drawing.Size(671, 593);
-            this.splitContainer1.SplitterDistance = 327;
+            this.splitContainer1.SplitterDistance = 326;
             this.splitContainer1.TabIndex = 0;
             // 
             // groupBox1
@@ -164,21 +200,10 @@ namespace RegexStudio
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(323, 589);
+            this.groupBox1.Size = new System.Drawing.Size(322, 589);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Input";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this._output);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(0, 0);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(336, 589);
-            this.groupBox2.TabIndex = 0;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Output";
             // 
             // _input
             // 
@@ -186,10 +211,21 @@ namespace RegexStudio
             this._input.Dock = System.Windows.Forms.DockStyle.Fill;
             this._input.Location = new System.Drawing.Point(3, 16);
             this._input.Name = "_input";
-            this._input.Size = new System.Drawing.Size(317, 570);
+            this._input.Size = new System.Drawing.Size(316, 570);
             this._input.TabIndex = 0;
             this._input.Text = "";
             this._input.WordWrap = false;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this._output);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Location = new System.Drawing.Point(0, 0);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(337, 589);
+            this.groupBox2.TabIndex = 0;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Output";
             // 
             // _output
             // 
@@ -197,28 +233,10 @@ namespace RegexStudio
             this._output.Dock = System.Windows.Forms.DockStyle.Fill;
             this._output.Location = new System.Drawing.Point(3, 16);
             this._output.Name = "_output";
-            this._output.Size = new System.Drawing.Size(330, 570);
+            this._output.Size = new System.Drawing.Size(331, 570);
             this._output.TabIndex = 0;
             this._output.Text = "";
             this._output.WordWrap = false;
-            // 
-            // _filename
-            // 
-            this._filename.Name = "_filename";
-            this._filename.Size = new System.Drawing.Size(0, 17);
-            // 
-            // saveToolStripMenuItem
-            // 
-            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.saveToolStripMenuItem.Text = "Save";
-            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // panel1
             // 
@@ -229,28 +247,6 @@ namespace RegexStudio
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(317, 593);
             this.panel1.TabIndex = 1;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox3.Controls.Add(this._regExGlobalOptions);
-            this.groupBox3.Location = new System.Drawing.Point(3, 3);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(311, 172);
-            this.groupBox3.TabIndex = 0;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "General settings";
-            // 
-            // _regExGlobalOptions
-            // 
-            this._regExGlobalOptions.CheckOnClick = true;
-            this._regExGlobalOptions.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._regExGlobalOptions.FormattingEnabled = true;
-            this._regExGlobalOptions.Location = new System.Drawing.Point(3, 16);
-            this._regExGlobalOptions.Name = "_regExGlobalOptions";
-            this._regExGlobalOptions.Size = new System.Drawing.Size(305, 153);
-            this._regExGlobalOptions.TabIndex = 0;
             // 
             // tabControl1
             // 
@@ -275,16 +271,6 @@ namespace RegexStudio
             this.Extract.TabIndex = 0;
             this.Extract.Text = "Extract";
             this.Extract.UseVisualStyleBackColor = true;
-            // 
-            // Replace
-            // 
-            this.Replace.Location = new System.Drawing.Point(4, 22);
-            this.Replace.Name = "Replace";
-            this.Replace.Padding = new System.Windows.Forms.Padding(3);
-            this.Replace.Size = new System.Drawing.Size(232, 381);
-            this.Replace.TabIndex = 1;
-            this.Replace.Text = "Replace";
-            this.Replace.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel2
             // 
@@ -313,6 +299,26 @@ namespace RegexStudio
             this.panel2.Size = new System.Drawing.Size(288, 25);
             this.panel2.TabIndex = 0;
             // 
+            // _extractExecute
+            // 
+            this._extractExecute.Location = new System.Drawing.Point(127, -1);
+            this._extractExecute.Name = "_extractExecute";
+            this._extractExecute.Size = new System.Drawing.Size(118, 23);
+            this._extractExecute.TabIndex = 1;
+            this._extractExecute.Text = "Execute";
+            this._extractExecute.UseVisualStyleBackColor = true;
+            this._extractExecute.Click += new System.EventHandler(this._extractExecute_Click);
+            // 
+            // _extracktHighlight
+            // 
+            this._extracktHighlight.Location = new System.Drawing.Point(3, -1);
+            this._extracktHighlight.Name = "_extracktHighlight";
+            this._extracktHighlight.Size = new System.Drawing.Size(118, 23);
+            this._extracktHighlight.TabIndex = 0;
+            this._extracktHighlight.Text = "Highlight";
+            this._extracktHighlight.UseVisualStyleBackColor = true;
+            this._extracktHighlight.Click += new System.EventHandler(this._extracktHighlight_Click);
+            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this._extractPattern);
@@ -323,17 +329,6 @@ namespace RegexStudio
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Pattern";
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this._extractFormatter);
-            this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox5.Location = new System.Drawing.Point(3, 175);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(288, 166);
-            this.groupBox5.TabIndex = 2;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Formatter";
             // 
             // _extractPattern
             // 
@@ -347,6 +342,17 @@ namespace RegexStudio
             this._extractPattern.TabIndex = 0;
             this._extractPattern.WordWrap = false;
             // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this._extractFormatter);
+            this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox5.Location = new System.Drawing.Point(3, 175);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(288, 166);
+            this.groupBox5.TabIndex = 2;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Formatter";
+            // 
             // _extractFormatter
             // 
             this._extractFormatter.AcceptsTab = true;
@@ -359,30 +365,131 @@ namespace RegexStudio
             this._extractFormatter.TabIndex = 0;
             this._extractFormatter.WordWrap = false;
             // 
-            // _extracktHighlight
+            // Replace
             // 
-            this._extracktHighlight.Location = new System.Drawing.Point(3, -1);
-            this._extracktHighlight.Name = "_extracktHighlight";
-            this._extracktHighlight.Size = new System.Drawing.Size(118, 23);
-            this._extracktHighlight.TabIndex = 0;
-            this._extracktHighlight.Text = "Highlight";
-            this._extracktHighlight.UseVisualStyleBackColor = true;
-            this._extracktHighlight.Click += new System.EventHandler(this._extracktHighlight_Click);
+            this.Replace.Controls.Add(this.tableLayoutPanel3);
+            this.Replace.Location = new System.Drawing.Point(4, 22);
+            this.Replace.Name = "Replace";
+            this.Replace.Padding = new System.Windows.Forms.Padding(3);
+            this.Replace.Size = new System.Drawing.Size(300, 381);
+            this.Replace.TabIndex = 1;
+            this.Replace.Text = "Replace";
+            this.Replace.UseVisualStyleBackColor = true;
             // 
-            // _extractExecute
+            // groupBox3
             // 
-            this._extractExecute.Location = new System.Drawing.Point(127, -1);
-            this._extractExecute.Name = "_extractExecute";
-            this._extractExecute.Size = new System.Drawing.Size(118, 23);
-            this._extractExecute.TabIndex = 1;
-            this._extractExecute.Text = "Execute";
-            this._extractExecute.UseVisualStyleBackColor = true;
-            this._extractExecute.Click += new System.EventHandler(this._extractExecute_Click);
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this._regExGlobalOptions);
+            this.groupBox3.Location = new System.Drawing.Point(3, 3);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(311, 172);
+            this.groupBox3.TabIndex = 0;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "General settings";
             // 
-            // _matchCount
+            // _regExGlobalOptions
             // 
-            this._matchCount.Name = "_matchCount";
-            this._matchCount.Size = new System.Drawing.Size(0, 17);
+            this._regExGlobalOptions.CheckOnClick = true;
+            this._regExGlobalOptions.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._regExGlobalOptions.FormattingEnabled = true;
+            this._regExGlobalOptions.Location = new System.Drawing.Point(3, 16);
+            this._regExGlobalOptions.Name = "_regExGlobalOptions";
+            this._regExGlobalOptions.Size = new System.Drawing.Size(305, 153);
+            this._regExGlobalOptions.TabIndex = 0;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 1;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Controls.Add(this.panel3, 0, 2);
+            this.tableLayoutPanel3.Controls.Add(this.groupBox6, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.groupBox7, 0, 1);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 3;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(294, 375);
+            this.tableLayoutPanel3.TabIndex = 1;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this._replaceExecute);
+            this.panel3.Controls.Add(this._replaceHighlight);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(3, 347);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(288, 25);
+            this.panel3.TabIndex = 0;
+            // 
+            // _replaceExecute
+            // 
+            this._replaceExecute.Location = new System.Drawing.Point(127, -1);
+            this._replaceExecute.Name = "_replaceExecute";
+            this._replaceExecute.Size = new System.Drawing.Size(118, 23);
+            this._replaceExecute.TabIndex = 1;
+            this._replaceExecute.Text = "Execute";
+            this._replaceExecute.UseVisualStyleBackColor = true;
+            this._replaceExecute.Click += new System.EventHandler(this._replaceExecute_Click);
+            // 
+            // _replaceHighlight
+            // 
+            this._replaceHighlight.Location = new System.Drawing.Point(3, -1);
+            this._replaceHighlight.Name = "_replaceHighlight";
+            this._replaceHighlight.Size = new System.Drawing.Size(118, 23);
+            this._replaceHighlight.TabIndex = 0;
+            this._replaceHighlight.Text = "Highlight";
+            this._replaceHighlight.UseVisualStyleBackColor = true;
+            this._replaceHighlight.Click += new System.EventHandler(this._replaceHighlight_Click);
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this._replacePattern);
+            this.groupBox6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox6.Location = new System.Drawing.Point(3, 3);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(288, 166);
+            this.groupBox6.TabIndex = 1;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Pattern";
+            // 
+            // _replacePattern
+            // 
+            this._replacePattern.AcceptsTab = true;
+            this._replacePattern.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._replacePattern.Location = new System.Drawing.Point(3, 16);
+            this._replacePattern.Multiline = true;
+            this._replacePattern.Name = "_replacePattern";
+            this._replacePattern.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this._replacePattern.Size = new System.Drawing.Size(282, 147);
+            this._replacePattern.TabIndex = 0;
+            this._replacePattern.WordWrap = false;
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this._replaceFormatter);
+            this.groupBox7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox7.Location = new System.Drawing.Point(3, 175);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(288, 166);
+            this.groupBox7.TabIndex = 2;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Formatter";
+            // 
+            // _replaceFormatter
+            // 
+            this._replaceFormatter.AcceptsTab = true;
+            this._replaceFormatter.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._replaceFormatter.Location = new System.Drawing.Point(3, 16);
+            this._replaceFormatter.Multiline = true;
+            this._replaceFormatter.Name = "_replaceFormatter";
+            this._replaceFormatter.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this._replaceFormatter.Size = new System.Drawing.Size(282, 147);
+            this._replaceFormatter.TabIndex = 0;
+            this._replaceFormatter.WordWrap = false;
             // 
             // MainForm
             // 
@@ -407,7 +514,6 @@ namespace RegexStudio
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.Extract.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -416,6 +522,14 @@ namespace RegexStudio
             this.groupBox4.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            this.Replace.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -454,6 +568,14 @@ namespace RegexStudio
         private System.Windows.Forms.Button _extractExecute;
         private System.Windows.Forms.Button _extracktHighlight;
         private System.Windows.Forms.ToolStripStatusLabel _matchCount;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button _replaceExecute;
+        private System.Windows.Forms.Button _replaceHighlight;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.TextBox _replacePattern;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.TextBox _replaceFormatter;
     }
 }
 
