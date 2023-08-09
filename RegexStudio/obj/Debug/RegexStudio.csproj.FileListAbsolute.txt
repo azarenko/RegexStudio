@@ -7,3 +7,12 @@ D:\projects\RegexStudio\RegexStudio\obj\Debug\RegexStudio.csproj.GenerateResourc
 D:\projects\RegexStudio\RegexStudio\obj\Debug\RegexStudio.csproj.CoreCompileInputs.cache
 D:\projects\RegexStudio\RegexStudio\obj\Debug\RegexStudio.exe
 D:\projects\RegexStudio\RegexStudio\obj\Debug\RegexStudio.pdb
+C:\projects\RegexStudio\RegexStudio\bin\Debug\RegexStudio.exe
+C:\projects\RegexStudio\RegexStudio\bin\Debug\RegexStudio.pdb
+C:\projects\RegexStudio\RegexStudio\obj\Debug\RegexStudio.csprojAssemblyReference.cache
+C:\projects\RegexStudio\RegexStudio\obj\Debug\RegexStudio.MainForm.resources
+C:\projects\RegexStudio\RegexStudio\obj\Debug\RegexStudio.Properties.Resources.resources
+C:\projects\RegexStudio\RegexStudio\obj\Debug\RegexStudio.csproj.GenerateResource.cache
+C:\projects\RegexStudio\RegexStudio\obj\Debug\RegexStudio.csproj.CoreCompileInputs.cache
+C:\projects\RegexStudio\RegexStudio\obj\Debug\RegexStudio.exe
+C:\projects\RegexStudio\RegexStudio\obj\Debug\RegexStudio.pdb

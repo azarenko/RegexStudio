@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Text;
@@ -105,46 +103,42 @@ namespace RegexStudio
 
         private void _extractExecute_Click(object sender, EventArgs e)
         {
-            Regex re;
-            try
+            switch (tabControl2.SelectedIndex)
             {
-                re = new Regex(_extractPattern.Text, GetReOptions());
-            }
-            catch (Exception exp)
-            {
-                MessageBox.Show(exp.Message);
-                return;
-            }
-
-            MatchCollection mc = re.Matches(_input.Text);
-
-            if (mc.Count > 0)
-            {
-                StringBuilder sb = new StringBuilder();
-
-                foreach (Match m in mc)
-                {
-                    List<string> groupValues = new List<string>();
-
-                    groupValues.Add(m.Value);
-
-                    foreach (Group g in m.Groups)
-                    {
-                        groupValues.Add(g.Value);
-                    }
-
+                case 0:
                     try
                     {
-                        sb.Append(string.Format(_extractFormatter.Text, groupValues.ToArray()));
+                        _output.Text = ExtractFunc(_input.Text);
                     }
                     catch (Exception exp)
                     {
                         MessageBox.Show(exp.Message);
-                        return;
                     }
-                }
+                    break;
+                case 1:
+                    try
+                    {
+                        DirectoryExtract(_dirPath.Text);
+                        MessageBox.Show("Done!");
+                    }
+                    catch (Exception exp)
+                    {
+                        MessageBox.Show(exp.Message);
+                    }
+                    break;
+            }
+            
+        }
 
-                _output.Text = sb.ToString();
+        private void DirectoryExtract(string Path)
+        {
+            foreach (var subfolder in Directory.GetDirectories(Path))
+            {
+                DirectoryExtract(subfolder);
+            }
+            foreach (var filePath in Directory.GetFiles(Path, _fileFilter.Text))
+            {
+                _dirResult.Text += ExtractFunc(File.ReadAllText(filePath));
             }
         }
 
@@ -171,18 +165,88 @@ namespace RegexStudio
 
         private void _replaceExecute_Click(object sender, EventArgs e)
         {
-            Regex re;
-            try
+            switch (tabControl2.SelectedIndex)
             {
-                re = new Regex(_replacePattern.Text, GetReOptions());
-            }
-            catch (Exception exp)
-            {
-                MessageBox.Show(exp.Message);
-                return;
-            }
+                case 0:
+                    try
+                    {
+                        _output.Text = ReplaceFunc(_input.Text);
+                    }
+                    catch (Exception exp)
+                    {
+                        MessageBox.Show(exp.Message);
+                    }
 
-            _output.Text = re.Replace(_input.Text, _replaceFormatter.Text);
+                    break;
+                case 1:
+                    try
+                    {
+                        DirectoryReplace(_dirPath.Text);
+                        MessageBox.Show("Done!");
+                    }
+                    catch (Exception exp)
+                    {
+                        MessageBox.Show(exp.Message);
+                    }
+
+                    break;
+            }
+        }
+
+        private void DirectoryReplace(string Path)
+        {
+            foreach (var subfolder in Directory.GetDirectories(Path))
+            {
+                DirectoryExtract(subfolder);
+            }
+            foreach (var filePath in Directory.GetFiles(Path, _fileFilter.Text))
+            {
+                _dirResult.Text += ReplaceFunc(File.ReadAllText(filePath));
+            }
+        }
+
+        private void _selDirectory_Click(object sender, EventArgs e)
+        {
+            if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+            {
+                _dirPath.Text = folderBrowserDialog1.SelectedPath;
+            }
+        }
+
+        private string ExtractFunc(string input)
+        {
+            Regex re = new Regex(_extractPattern.Text, GetReOptions());
+
+            MatchCollection mc = re.Matches(input);
+
+            if (mc.Count > 0)
+            {
+                StringBuilder sb = new StringBuilder();
+
+                foreach (Match m in mc)
+                {
+                    List<string> groupValues = new List<string>();
+
+                    groupValues.Add(m.Value);
+
+                    foreach (Group g in m.Groups)
+                    {
+                        groupValues.Add(g.Value);
+                    }
+
+                    sb.Append(string.Format(_extractFormatter.Text, groupValues.ToArray()));
+                }
+
+                return sb.ToString();
+            }
+            else
+                return string.Empty;
+        }
+
+        private string ReplaceFunc(string input)
+        {
+            Regex re = new Regex(_replacePattern.Text, GetReOptions());
+            return re.Replace(input, _replaceFormatter.Text);
         }
     }
 }
